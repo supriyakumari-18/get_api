@@ -26,9 +26,9 @@ app.get('/department',(req,res)=>{
 
    db.query(sqlQ,(err,result)=>{
    if(err){
-    req.status(500).json({message:"Internal Server Error"})
+     return res.status(500).json({message:"Internal Server Error"})
    }
-   res.status(200).json({
+     return res.status(200).json({
     message:"Data fetched successfully",
     result
    })
@@ -67,7 +67,7 @@ const sqlQ="DELETE FROM department WHERE id=?";
 
 db.query(sqlQ,[dId],(error,result)=>{
    if(error){
-            res.status(500).json({message:"Server internal Errors:"+error})
+          return   res.status(500).json({message:"Server internal Errors:"+error})
         }
   if(result.affectedRows===0){
 
